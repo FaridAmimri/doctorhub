@@ -1,14 +1,13 @@
 /** @format */
 
-import Category from '@/_components/Category'
 import Hero from '@/_components/Hero'
-import Image from 'next/image'
+import Category from '@/_components/Category'
 
 export default function Home() {
   return (
-    <div>
+    <main>
       <Hero />
       <Category />
-    </div>
+    </main>
   )
 }

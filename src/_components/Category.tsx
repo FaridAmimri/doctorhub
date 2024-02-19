@@ -2,11 +2,13 @@
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { categories } from '@/data'
 import { SearchIcon } from 'lucide-react'
+import Image from 'next/image'
 
 const Category = () => {
   return (
-    <div className='mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16'>
+    <div className='mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8'>
       <div className='flex flex-col items-center gap-2'>
         <h2 className='font-bold text-4xl tracking-wide'>
           Search <span className='text-primary'>Doctors</span>
@@ -20,6 +22,23 @@ const Category = () => {
             <SearchIcon className='h-4 w-4 mr-2' />
             Search
           </Button>
+        </div>
+        <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 mt-5'>
+          {categories.map((category) => (
+            <div
+              key={category.id}
+              className='flex flex-col items-center gap-2 p-5 bg-blue-50 m-2 rounded-lg hover:scale-110 transition-all ease-in-out cursor-pointer'
+            >
+              <Image
+                src={category.icon}
+                alt='icon'
+                width={40}
+                height={40}
+                className=''
+              />
+              <label className='text-sm'>{category.title}</label>
+            </div>
+          ))}
         </div>
       </div>
     </div>
