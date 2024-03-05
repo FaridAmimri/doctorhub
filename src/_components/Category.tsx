@@ -2,11 +2,27 @@
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { categories } from '@/data'
+// import { categories } from '@/data'
 import { SearchIcon } from 'lucide-react'
 import Image from 'next/image'
+import { publicRequest } from '@/utils/request'
+import { CategoryType } from '@/types/types'
 
-const Category = () => {
+const Category = async () => {
+  const getData = async () => {
+    const res = await fetch(publicRequest + 'categories', {
+      cache: 'no-store'
+    })
+
+    if (!res.ok) {
+      throw new Error('Failed')
+    }
+
+    return res.json()
+  }
+
+  const categories: CategoryType[] = await getData()
+
   return (
     <div className='mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8'>
       <div className='flex flex-col items-center gap-2'>
