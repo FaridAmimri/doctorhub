@@ -16,6 +16,7 @@ const Category = () => {
         <p className='text-gray-500 text-xl'>
           Search Your Doctor and Book Appointment
         </p>
+
         <div className='flex w-full max-w-sm items-center space-x-2 mt-3'>
           <Input type='text' placeholder='Search...' />
           <Button type='submit'>
@@ -23,6 +24,7 @@ const Category = () => {
             Search
           </Button>
         </div>
+
         <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 mt-5'>
           {categories.map((category) => (
             <div
