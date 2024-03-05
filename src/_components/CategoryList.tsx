@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { publicRequest } from '@/utils/request'
 import { CategoryType } from '@/types/types'
 
-const Category = async () => {
+const CategoryList = async () => {
   const getData = async () => {
     const res = await fetch(publicRequest + 'categories', {
       cache: 'no-store'
@@ -63,4 +63,4 @@ const Category = async () => {
   )
 }
 
-export default Category
+export default CategoryList

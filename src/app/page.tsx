@@ -1,13 +1,15 @@
 /** @format */
 
 import Hero from '@/_components/Hero'
-import Category from '@/_components/Category'
+import CategoryList from '@/_components/CategoryList'
+import DoctorList from '@/_components/DoctorList'
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <Category />
+      <CategoryList />
+      <DoctorList />
     </main>
   )
 }
