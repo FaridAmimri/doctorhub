@@ -1,39 +1,39 @@
 import { CategoryType } from "./types/types";
 
 
-export const categories: CategoryType = [
+export const categories: CategoryType[] = [
     {
-        id: 1,
+        id: '1',
         slug: "dentist",
         title: "Dentist",
         icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNoaWVsZC1wbHVzIj48cGF0aCBkPSJNMTIgMjJzOC00IDgtMTBWNWwtOC0zLTggM3Y3YzAgNiA4IDEwIDggMTAiLz48cGF0aCBkPSJNOSAxMWg2Ii8+PHBhdGggZD0iTTEyIDh2NiIvPjwvc3ZnPg=="
     },
     {
-        id: 2,
+        id: '2',
         slug: "cardiologist",
         title: "Cardiologist",
         icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWhlYXJ0LXB1bHNlIj48cGF0aCBkPSJNMTkgMTRjMS40OS0xLjQ2IDMtMy4yMSAzLTUuNUE1LjUgNS41IDAgMCAwIDE2LjUgM2MtMS43NiAwLTMgLjUtNC41IDItMS41LTEuNS0yLjc0LTItNC41LTJBNS41IDUuNSAwIDAgMCAyIDguNWMwIDIuMyAxLjUgNC4wNSAzIDUuNWw3IDdaIi8+PHBhdGggZD0iTTMuMjIgMTJIOS41bC41LTEgMiA0LjUgMi03IDEuNSAzLjVoNS4yNyIvPjwvc3ZnPg=="
     },
     {
-        id: 3,
+        id: '3',
         slug: "orthopedist",
         title: "Orthopedist",
         icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbmUiPjxwYXRoIGQ9Ik0xNyAxMGMuNy0uNyAxLjY5IDAgMi41IDBhMi41IDIuNSAwIDEgMCAwLTUgLjUuNSAwIDAgMS0uNS0uNSAyLjUgMi41IDAgMSAwLTUgMGMwIC44MS43IDEuOCAwIDIuNWwtNyA3Yy0uNy43LTEuNjkgMC0yLjUgMGEyLjUgMi41IDAgMCAwIDAgNWMuMjggMCAuNS4yMi41LjVhMi41IDIuNSAwIDEgMCA1IDBjMC0uODEtLjctMS44IDAtMi41WiIvPjwvc3ZnPg=="
     },
     {
-        id: 4,
+        id: '4',
         slug: "neurologist",
         title: "Neurologist",
         icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJyYWluIj48cGF0aCBkPSJNOS41IDJBMi41IDIuNSAwIDAgMSAxMiA0LjV2MTVhMi41IDIuNSAwIDAgMS00Ljk2LjQ0IDIuNSAyLjUgMCAwIDEtMi45Ni0zLjA4IDMgMyAwIDAgMS0uMzQtNS41OCAyLjUgMi41IDAgMCAxIDEuMzItNC4yNCAyLjUgMi41IDAgMCAxIDEuOTgtM0EyLjUgMi41IDAgMCAxIDkuNSAyWiIvPjxwYXRoIGQ9Ik0xNC41IDJBMi41IDIuNSAwIDAgMCAxMiA0LjV2MTVhMi41IDIuNSAwIDAgMCA0Ljk2LjQ0IDIuNSAyLjUgMCAwIDAgMi45Ni0zLjA4IDMgMyAwIDAgMCAuMzQtNS41OCAyLjUgMi41IDAgMCAwLTEuMzItNC4yNCAyLjUgMi41IDAgMCAwLTEuOTgtM0EyLjUgMi41IDAgMCAwIDE0LjUgMloiLz48L3N2Zz4="
     },
     {
-        id: 5,
+        id: '5',
         slug: "otologist",
         title: "Otologist",
         icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWVhciI+PHBhdGggZD0iTTYgOC41YTYuNSA2LjUgMCAxIDEgMTMgMGMwIDYtNiA2LTYgMTBhMy41IDMuNSAwIDEgMS03IDAiLz48cGF0aCBkPSJNMTUgOC41YTIuNSAyLjUgMCAwIDAtNSAwdjFhMiAyIDAgMSAxIDAgNCIvPjwvc3ZnPg=="
     },
     {
-        id: 6,
+        id: '6',
         slug: "generalist",
         title: "Generalist",
         icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWFtYnVsYW5jZSI+PHBhdGggZD0iTTEwIDEwSDYiLz48cGF0aCBkPSJNMTQgMThWNmEyIDIgMCAwIDAtMi0ySDRhMiAyIDAgMCAwLTIgMnYxMWExIDEgMCAwIDAgMSAxaDIiLz48cGF0aCBkPSJNMTkgMThoMmExIDEgMCAwIDAgMS0xdi0zLjI4YTEgMSAwIDAgMC0uNjg0LS45NDhsLTEuOTIzLS42NDFhMSAxIDAgMCAxLS41NzgtLjUwMmwtMS41MzktMy4wNzZBMSAxIDAgMCAwIDE2LjM4MiA4SDE0Ii8+PHBhdGggZD0iTTggOHY0Ii8+PHBhdGggZD0iTTkgMThoNiIvPjxjaXJjbGUgY3g9IjE3IiBjeT0iMTgiIHI9IjIiLz48Y2lyY2xlIGN4PSI3IiBjeT0iMTgiIHI9IjIiLz48L3N2Zz4="
