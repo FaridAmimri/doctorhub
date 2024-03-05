@@ -53,3 +53,27 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+model Category {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  title     String
+  icon      String
+  slug      String   @unique
+  doctors   Doctor[]
+}
+
+model Doctor {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  name        String
+  about       String
+  address     String
+  phone       String
+  premium     String
+  image       String?
+  experiences String
+  patients    String
+  category    Category @relation(fields: [catSlug], references: [slug])
+  catSlug     String
+}
