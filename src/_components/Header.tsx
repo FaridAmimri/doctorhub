@@ -24,10 +24,10 @@ const Header = () => {
     }
   ]
   return (
-    <nav className='mx-auto max-w-screen-xl p-4 flex items-center justify-between shadow-sm'>
-      <div className='flex items-center gap-10'>
+    <header className='mx-auto max-w-screen-xl p-4 flex items-center justify-between shadow-sm'>
+      <div className='flex items-center w-full'>
         <Image src='/logo.svg' alt='logo' width={180} height={80} />
-        <ul className='hidden md:flex gap-8'>
+        <ul className='hidden justify-center md:flex gap-8 md:w-full'>
           {Menu.map((item) => (
             <Link key={item.id} href={item.path}>
               <li className='hover:text-primary hover:scale-105 transition-all ease-in-out cursor-pointer'>
@@ -38,7 +38,7 @@ const Header = () => {
         </ul>
       </div>
       <Button>Get Started</Button>
-    </nav>
+    </header>
   )
 }
 
