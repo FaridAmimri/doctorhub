@@ -8,19 +8,19 @@ import Image from 'next/image'
 import { publicRequest } from '@/utils/request'
 import { CategoryType } from '@/types/types'
 
-const CategoryList = async () => {
-  const getData = async () => {
-    const res = await fetch(publicRequest + 'categories', {
-      cache: 'no-store'
-    })
+const getData = async () => {
+  const res = await fetch(publicRequest + 'categories', {
+    cache: 'no-store'
+  })
 
-    if (!res.ok) {
-      throw new Error('Failed')
-    }
-
-    return res.json()
+  if (!res.ok) {
+    throw new Error('Failed')
   }
 
+  return res.json()
+}
+
+const CategoryList = async () => {
   const categories: CategoryType[] = await getData()
 
   return (
@@ -42,21 +42,22 @@ const CategoryList = async () => {
         </div>
 
         <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 mt-5'>
-          {categories.map((category) => (
-            <div
-              key={category.id}
-              className='flex flex-col items-center gap-2 p-5 bg-blue-50 m-2 rounded-lg hover:scale-110 transition-all ease-in-out cursor-pointer'
-            >
-              <Image
-                src={category.icon}
-                alt='icon'
-                width={40}
-                height={40}
-                className=''
-              />
-              <label className='text-sm'>{category.title}</label>
-            </div>
-          ))}
+          {categories &&
+            categories.map((category) => (
+              <div
+                key={category.id}
+                className='flex flex-col items-center gap-2 p-5 bg-blue-50 m-2 rounded-lg hover:scale-110 transition-all ease-in-out cursor-pointer'
+              >
+                <Image
+                  src={category.icon}
+                  alt='icon'
+                  width={40}
+                  height={40}
+                  className=''
+                />
+                <label className='text-sm'>{category.title}</label>
+              </div>
+            ))}
         </div>
       </div>
     </div>
