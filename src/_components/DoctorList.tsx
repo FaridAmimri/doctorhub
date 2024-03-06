@@ -1,7 +1,5 @@
 /** @format */
 
-import { useState, useEffect } from 'react'
-import { useQuery } from '@tanstack/react-query'
 import { publicRequest } from '@/utils/request'
 import { DoctorType } from '@/types/types'
 import Image from 'next/image'
@@ -20,7 +18,6 @@ const getData = async () => {
 
 const DoctorList = async () => {
   const doctors: DoctorType[] = await getData()
-  console.log(doctors)
 
   return (
     <div className='mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 my-10'>
