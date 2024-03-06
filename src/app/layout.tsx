@@ -5,6 +5,7 @@ import { Outfit } from 'next/font/google'
 import './globals.css'
 import Header from '@/_components/Header'
 import QueryProvider from '@/_components/QueryProvider'
+import Footer from '@/_components/Footer'
 
 const outfit = Outfit({ subsets: ['latin'] })
 
@@ -24,6 +25,7 @@ export default function RootLayout({
         <QueryProvider>
           <Header />
           {children}
+          <Footer />
         </QueryProvider>
       </body>
     </html>
