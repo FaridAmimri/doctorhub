@@ -24,7 +24,7 @@ const Header = () => {
     }
   ]
   return (
-    <nav className='p-4 flex items-center justify-between shadow-sm'>
+    <nav className='mx-auto max-w-screen-xl p-4 flex items-center justify-between shadow-sm'>
       <div className='flex items-center gap-10'>
         <Image src='/logo.svg' alt='logo' width={180} height={80} />
         <ul className='hidden md:flex gap-8'>
