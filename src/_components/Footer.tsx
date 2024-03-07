@@ -1,12 +1,15 @@
 /** @format */
 
-import Image from 'next/image'
+import { Stethoscope } from 'lucide-react'
 
 const Footer = () => {
   return (
     <footer className='bg-gray-100 mx-auto max-w-screen-xl'>
       <div className='px-4 py-16 sm:px-6 lg:px-8 flex flex-col justify-center items-center'>
-        <Image src='/logo.svg' alt='logo' width={180} height={80} />
+        <div className='flex gap-2 items-center'>
+          <Stethoscope className='text-primary' />
+          <span className='text-primary font-bold text-xl'>DoctorHub</span>
+        </div>
 
         <p className='mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500'>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
