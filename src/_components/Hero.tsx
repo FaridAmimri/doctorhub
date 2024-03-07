@@ -12,7 +12,7 @@ const Hero = () => {
           <div className='relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full'>
             <Image
               alt=''
-              src='/doctors.jpg'
+              src='/doctorHero.jpg'
               className='absolute inset-0 h-full w-full object-cover'
               width={800}
               height={800}
@@ -32,7 +32,7 @@ const Hero = () => {
               repellat.
             </p>
 
-            <Button className='mt-10'>Explore know</Button>
+            <Button className='mt-10'>Explore now</Button>
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@ import { SearchIcon } from 'lucide-react'
 import Image from 'next/image'
 import { publicRequest } from '@/utils/request'
 import { CategoryType } from '@/types/types'
+import { Skeleton } from '@/components/ui/skeleton'
 
 const getData = async () => {
   const res = await fetch(publicRequest + 'categories', {
@@ -41,23 +42,28 @@ const CategoryList = async () => {
           </Button>
         </div>
 
-        <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 mt-5'>
-          {categories &&
-            categories.map((category) => (
-              <div
-                key={category.id}
-                className='flex flex-col items-center gap-2 p-5 bg-blue-50 m-2 rounded-lg hover:scale-110 transition-all ease-in-out cursor-pointer'
-              >
-                <Image
-                  src={category.icon}
-                  alt='icon'
-                  width={40}
-                  height={40}
-                  className=''
-                />
-                <label className='text-sm'>{category.title}</label>
-              </div>
-            ))}
+        <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 mt-5'>
+          {categories.length > 0
+            ? categories.map((category) => (
+                <div
+                  key={category.id}
+                  className='flex flex-col items-center gap-2 p-5 bg-blue-50 m-2 rounded-lg hover:scale-110 transition-all ease-in-out cursor-pointer'
+                >
+                  <Image
+                    src={category.icon}
+                    alt='icon'
+                    width={40}
+                    height={40}
+                    className=''
+                  />
+                  <label className='text-sm'>{category.title}</label>
+                </div>
+              ))
+            : [0, 1, 2, 3, 4, 5].map((item, index) => (
+                <div key={index} className='p-5'>
+                  <Skeleton className='h-24 w-24 rounded-lg' />
+                </div>
+              ))}
         </div>
       </div>
     </div>
