@@ -10,7 +10,7 @@ import Footer from '@/_components/Footer'
 const outfit = Outfit({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Find your doctor',
+  title: 'Doctor Hub',
   description: 'Find & Book an appointment with your doctor'
 }
 

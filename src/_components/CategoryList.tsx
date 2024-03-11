@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { publicRequest } from '@/utils/request'
 import { CategoryType } from '@/types/types'
 import { Skeleton } from '@/components/ui/skeleton'
+import Link from 'next/link'
 
 const getData = async () => {
   const res = await fetch(publicRequest + 'categories', {
@@ -45,8 +46,9 @@ const CategoryList = async () => {
         <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 mt-5'>
           {categories.length > 0
             ? categories.map((category) => (
-                <div
+                <Link
                   key={category.id}
+                  href={`/category/${category.slug}`}
                   className='flex flex-col items-center gap-2 p-5 bg-blue-50 m-2 rounded-lg hover:scale-110 transition-all ease-in-out cursor-pointer'
                 >
                   <Image
@@ -57,7 +59,7 @@ const CategoryList = async () => {
                     className=''
                   />
                   <label className='text-sm'>{category.title}</label>
-                </div>
+                </Link>
               ))
             : [0, 1, 2, 3, 4, 5].map((item, index) => (
                 <div key={index} className='p-5'>
