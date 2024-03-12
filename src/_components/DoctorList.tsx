@@ -1,28 +1,16 @@
 /** @format */
 
-import { publicRequest } from '@/utils/request'
 import { DoctorType } from '@/types/types'
 import Image from 'next/image'
 import { Skeleton } from '@/components/ui/skeleton'
+import { getData } from '@/utils/getData'
 
-const getData = async () => {
-  const res = await fetch(publicRequest + 'doctors', {
-    cache: 'no-store'
-  })
-
-  if (!res.ok) {
-    throw new Error('Failed')
-  }
-
-  return res.json()
-}
-
-const DoctorList = async () => {
-  const doctors: DoctorType[] = await getData()
+const DoctorList = async ({ api = 'doctors', title = 'Popular Doctors' }) => {
+  const doctors: DoctorType[] = await getData(api)
 
   return (
     <div className='mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 my-10'>
-      <h2 className='font-bold text-xl'>Popular Doctors</h2>
+      <h2 className='font-bold text-xl'>{title}</h2>
       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 mt-4'>
         {doctors.length > 0
           ? doctors.map((doctor) => (

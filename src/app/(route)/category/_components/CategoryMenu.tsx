@@ -13,7 +13,6 @@ import {
   CommandSeparator,
   CommandShortcut
 } from '@/components/ui/command'
-import { getData } from '@/utils/getData'
 import Link from 'next/link'
 import Image from 'next/image'
 import { publicRequest } from '@/utils/request'

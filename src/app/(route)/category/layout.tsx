@@ -1,6 +1,5 @@
 /** @format */
 
-import React from 'react'
 import CategoryMenu from './_components/CategoryMenu'
 
 const layout = ({
