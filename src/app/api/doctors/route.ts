@@ -1,13 +1,21 @@
 /** @format */
 
 import { prisma } from '@/utils/connect'
-import { NextResponse } from 'next/server'
+import { NextResponse, NextRequest } from 'next/server'
+
 
 
 // FETCH ALL DOCTORS
-export const GET = async () => {
+export const GET = async (req: NextRequest) => {
+    const { searchParams } = new URL(req.url)
+    const cat = searchParams.get('cat')
+
     try {
-        const doctors = await prisma.doctor.findMany()
+        const doctors = await prisma.doctor.findMany({
+            where: {
+                ...(cat && { catSlug: cat }),
+            }
+        })
         return new NextResponse(JSON.stringify(doctors), { status: 200 })
     } catch (error) {
         console.log(error)
@@ -17,3 +25,4 @@ export const GET = async () => {
         )
     }
 }
+
