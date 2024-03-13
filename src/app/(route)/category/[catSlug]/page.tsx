@@ -2,13 +2,13 @@
 
 import DoctorList from '@/_components/DoctorList'
 
-const categoryPage = async ({ params }: { params: { catSlug: string } }) => {
+const categoryPage = ({ params }: { params: { catSlug: string } }) => {
   const category = params.catSlug.toUpperCase()
-  const doctorsByCategoryApi = `doctors?cat=${params.catSlug}`
+  // const doctorsByCategoryApi = `doctors?cat=${params.catSlug}`
 
   return (
     <div>
-      <DoctorList api={doctorsByCategoryApi} title={category} />
+      <DoctorList title={category} />
     </div>
   )
 }

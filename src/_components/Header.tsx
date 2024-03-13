@@ -1,11 +1,15 @@
 /** @format */
+'use client'
 
-import { Button } from '@/components/ui/button'
 import { Stethoscope } from 'lucide-react'
 import Link from 'next/link'
-import React from 'react'
+import { useSession, signOut } from 'next-auth/react'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 const Header = () => {
+  const { data: session } = useSession()
+  console.log(session)
+
   const Menu = [
     {
       id: 1,
@@ -41,7 +45,19 @@ const Header = () => {
           ))}
         </ul>
       </div>
-      <Button>Get Started</Button>
+      {!session ? (
+        <Link
+          href='/login'
+          className='bg-primary p-2 rounded-lg text-white text-sm w-28 text-center'
+        >
+          Get Started
+        </Link>
+      ) : (
+        <Avatar>
+          <AvatarImage src={session?.user.image!} alt='profil' />
+          <AvatarFallback>CN</AvatarFallback>
+        </Avatar>
+      )}
     </header>
   )
 }

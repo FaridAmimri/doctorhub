@@ -1,19 +1,33 @@
 /** @format */
+'use client'
 
 import { DoctorType } from '@/types/types'
 import Image from 'next/image'
 import { Skeleton } from '@/components/ui/skeleton'
-import { getData } from '@/utils/getData'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { publicRequest } from '@/utils/request'
 
-const DoctorList = async ({ api = 'doctors', title = 'Popular Doctors' }) => {
-  const doctors: DoctorType[] = await getData(api)
+const DoctorList = ({ title = 'Popular Doctors' }) => {
+  const { data: session } = useSession()
+  const router = useRouter()
+
+  const { isLoading, error, data } = useQuery({
+    queryKey: ['doctors'],
+    queryFn: () => fetch(publicRequest + 'doctors').then((res) => res.json())
+  })
+
+  const handleBooking = async () => {
+    !session ? router.push('/login') : null
+  }
 
   return (
     <div className='mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 my-10'>
       <h2 className='font-bold text-xl'>{title}</h2>
       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 mt-4'>
-        {doctors.length > 0
-          ? doctors.map((doctor) => (
+        {data
+          ? data.map((doctor: DoctorType) => (
               <div
                 key={doctor.id}
                 className='border-[1px] rounded-lg p-3 cursor-pointer hover:border-primary hover:shadow-lg transition-all ease-in-out'
@@ -34,7 +48,10 @@ const DoctorList = async ({ api = 'doctors', title = 'Popular Doctors' }) => {
                     {doctor.experiences} Years
                   </span>
                   <p className='text-gray-500 text-sm'>{doctor.address}</p>
-                  <button className='p-2 px-3 border-[1px] border-primary text-primary rounded-full w-full text-center text-[11px] mt-2 hover:bg-primary hover:text-white'>
+                  <button
+                    className='p-2 px-3 border-[1px] border-primary text-primary rounded-full w-full text-center text-[11px] mt-2 hover:bg-primary hover:text-white'
+                    onClick={handleBooking}
+                  >
                     Book now
                   </button>
                 </div>
