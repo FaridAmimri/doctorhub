@@ -18,8 +18,8 @@ const DoctorList = ({ title = 'Popular Doctors' }) => {
     queryFn: () => fetch(publicRequest + 'doctors').then((res) => res.json())
   })
 
-  const handleBooking = async () => {
-    !session ? router.push('/login') : null
+  const handleBooking = async (doctorId: string) => {
+    !session ? router.push('/login') : router.push(`/doctor/${doctorId}`)
   }
 
   return (
@@ -50,7 +50,7 @@ const DoctorList = ({ title = 'Popular Doctors' }) => {
                   <p className='text-gray-500 text-sm'>{doctor.address}</p>
                   <button
                     className='p-2 px-3 border-[1px] border-primary text-primary rounded-full w-full text-center text-[11px] mt-2 hover:bg-primary hover:text-white'
-                    onClick={handleBooking}
+                    onClick={() => handleBooking(doctor.id)}
                   >
                     Book now
                   </button>
