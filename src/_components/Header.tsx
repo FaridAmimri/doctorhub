@@ -8,7 +8,6 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 const Header = () => {
   const { data: session } = useSession()
-  console.log(session)
 
   const Menu = [
     {
