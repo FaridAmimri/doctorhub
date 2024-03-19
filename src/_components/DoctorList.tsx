@@ -8,6 +8,7 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { publicRequest } from '@/utils/request'
+import Link from 'next/link'
 
 const DoctorList = ({ title = 'Popular Doctors' }) => {
   const { data: session } = useSession()
@@ -48,12 +49,13 @@ const DoctorList = ({ title = 'Popular Doctors' }) => {
                     {doctor.experiences} Years
                   </span>
                   <p className='text-gray-500 text-sm'>{doctor.address}</p>
-                  <button
+                  <Link
+                    href={`/doctor/${doctor.id}`}
                     className='p-2 px-3 border-[1px] border-primary text-primary rounded-full w-full text-center text-[11px] mt-2 hover:bg-primary hover:text-white'
                     onClick={() => handleBooking(doctor.id)}
                   >
                     Book now
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))

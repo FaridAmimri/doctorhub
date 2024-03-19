@@ -52,10 +52,15 @@ const Header = () => {
           Get Started
         </Link>
       ) : (
-        <Avatar>
-          <AvatarImage src={session?.user.image!} alt='profil' />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
+        <div className='flex gap-2'>
+          <Avatar>
+            <AvatarImage src={session?.user?.image!} alt='profil' />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+          <span className='cursor-pointer' onClick={() => signOut()}>
+            Logout
+          </span>
+        </div>
       )}
     </header>
   )

@@ -5,7 +5,7 @@ import { NextResponse, NextRequest } from 'next/server'
 
 
 
-// FETCH ALL DOCTORS
+// FETCH ALL DOCTORS BY CATEGORY
 export const GET = async (req: NextRequest) => {
     const { searchParams } = new URL(req.url)
     const cat = searchParams.get('cat')
