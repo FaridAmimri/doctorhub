@@ -3,7 +3,7 @@
 import { getData } from '@/utils/getData'
 import { DoctorType } from '@/types/types'
 import Image from 'next/image'
-import { GraduationCap, Linkedin, MapPin, Twitter, X } from 'lucide-react'
+import { GraduationCap, Linkedin, MapPin, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
