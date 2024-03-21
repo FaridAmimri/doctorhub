@@ -27,7 +27,7 @@ const DoctorList = ({ title = 'Popular Doctors' }) => {
     <div className='mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 my-10'>
       <h2 className='font-bold text-xl'>{title}</h2>
       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 mt-4'>
-        {data
+        {!isLoading
           ? data.map((doctor: DoctorType) => (
               <div
                 key={doctor.id}

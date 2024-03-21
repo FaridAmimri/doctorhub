@@ -36,14 +36,15 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String        @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String?       @unique
   emailVerified DateTime?
   image         String?
-  isAdmin       Boolean   @default(false)
+  isAdmin       Boolean       @default(false)
   accounts      Account[]
   sessions      Session[]
+  appointment   Appointment[]
 }
 
 model VerificationToken {
@@ -64,16 +65,29 @@ model Category {
 }
 
 model Doctor {
-  id          String   @id @default(cuid())
-  createdAt   DateTime @default(now())
-  name        String
-  about       String
-  address     String
-  phone       String
-  premium     String
-  image       String?
-  experiences String
-  patients    String
-  category    Category @relation(fields: [catSlug], references: [slug])
-  catSlug     String
+  id           String        @id @default(cuid())
+  createdAt    DateTime      @default(now())
+  name         String
+  about        String
+  address      String
+  phone        String
+  premium      String
+  image        String?
+  experiences  String
+  patients     String
+  category     Category      @relation(fields: [catSlug], references: [slug])
+  catSlug      String
+  appointments Appointment[]
+}
+
+model Appointment {
+  id        String @id @default(cuid())
+  user      User   @relation(fields: [userEmail], references: [email])
+  userEmail String
+  userName  String
+  date      String
+  time      String
+  note      String
+  doctor    Doctor @relation(fields: [doctorId], references: [id])
+  doctorId  String
 }

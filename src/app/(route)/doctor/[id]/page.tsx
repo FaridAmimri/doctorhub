@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { GraduationCap, Linkedin, MapPin, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import BookAppointment from '@/_components/BookAppointment'
 
 const DoctorPage = async ({ params }: { params: { id: string } }) => {
   const doctorId = params.id
@@ -15,7 +16,7 @@ const DoctorPage = async ({ params }: { params: { id: string } }) => {
   return (
     <div className='p-5 md:px-20'>
       <h2 className='font-bold text-[22px]'>Details</h2>
-      <div className='grid grid-cols-1 md:grid-cols-4'>
+      <div className='grid grid-cols-1 lg:grid-cols-4'>
         {/* Doctor Details */}
         <div className='col-span-3'>
           <div className='col-span-3 grid grid-cols-1 md:grid-cols-3 border-[1px] p-5 mt-5 rounded-lg'>
@@ -48,7 +49,7 @@ const DoctorPage = async ({ params }: { params: { id: string } }) => {
                 <Linkedin />
                 <X />
               </div>
-              <Button className='mt-3 rounded-full'>Book Appointment</Button>
+              <BookAppointment />
             </div>
           </div>
 
@@ -67,7 +68,7 @@ const DoctorPage = async ({ params }: { params: { id: string } }) => {
           {doctorList.map((doctor) => (
             <Link
               key={doctor.id}
-              href={'/details/' + doctor.id}
+              href={`/doctor/${doctor.id}`}
               className=' mb-4 p-3 shadow-sm w-full 
             cursor-pointer hover:bg-slate-100
             rounded-lg flex items-center gap-3'
@@ -80,17 +81,17 @@ const DoctorPage = async ({ params }: { params: { id: string } }) => {
                 className='w-[70px] h-[70px] rounded-full object-cover'
               />
               <div className='mt-3 flex-col flex gap-1 items-baseline'>
-                <h2
+                <div
                   className='text-[10px] bg-blue-100 p-1 rounded-full px-2
                      text-primary'
                 >
                   {doctor.catSlug}
-                </h2>
+                </div>
                 <h2 className='font-medium text-sm'>{doctor.name}</h2>
-                <h2 className='text-primary text-xs flex gap-2'>
+                <span className='text-primary text-xs flex gap-2'>
                   {/* <GraduationCap/> */}
-                  {doctor.experiences}
-                </h2>
+                  {doctor.experiences} Years
+                </span>
               </div>
             </Link>
           ))}
