@@ -18,7 +18,7 @@ import { CalendarDays, Clock } from 'lucide-react'
 
 const BookAppointment = () => {
   const [date, setDate] = useState<Date | undefined>(new Date())
-  const [timeSlot, setTimeSlot] = useState<[]>([])
+  const [timeSlot, setTimeSlot] = useState<{}[]>([{}])
   const [selectedTimeSlot, setSelectedTimeSlot] = useState<string | undefined>()
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const BookAppointment = () => {
   }, [])
 
   const getTime = () => {
-    const timeList: any = []
+    const timeList: {}[] = []
     for (let i = 10; i <= 12; i++) {
       timeList.push({
         time: i + ':00 AM'

@@ -1,1 +1,1 @@
-export const publicRequest = 'http://localhost:3000/api/'
+export const publicRequest = 'https://doctorhub.vercel.app/api/'
