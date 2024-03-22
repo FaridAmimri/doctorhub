@@ -1,6 +1,9 @@
 /** @format */
 'use client'
 
+import { useState, useEffect } from 'react'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -13,13 +16,17 @@ import {
   DialogTrigger
 } from '@/components/ui/dialog'
 import { Calendar } from '@/components/ui/calendar'
-import { useState, useEffect } from 'react'
 import { CalendarDays, Clock } from 'lucide-react'
+import { DoctorType } from '@/types/types'
+import { publicRequest } from '@/utils/request'
 
-const BookAppointment = () => {
+const BookAppointment = ({ doctor }: { doctor: DoctorType }) => {
   const [date, setDate] = useState<Date | undefined>(new Date())
   const [timeSlot, setTimeSlot] = useState<{}[]>([{}])
   const [selectedTimeSlot, setSelectedTimeSlot] = useState<string | undefined>()
+
+  const { data: session } = useSession()
+  const router = useRouter()
 
   useEffect(() => {
     getTime()
@@ -51,18 +58,32 @@ const BookAppointment = () => {
     return day <= new Date()
   }
 
-  const saveBooking = () => {
-    const data = {
-      data: {
-        // UserName: user.given_name + ' ' + user.family_name,
-        // Email: user.email,
-        // Time: selectedTimeSlot,
-        // Date: date,
-        // doctor: doctor.id,
-        // Note: note
+  const handleBooking = async () => {
+    if (!session) {
+      router.push('/login')
+    } else {
+      try {
+        const data = {
+          userEmail: session?.user.email,
+          userName: session?.user.name,
+          date: date?.toDateString(),
+          time: selectedTimeSlot,
+          note: 'test',
+          doctorId: doctor.id
+        }
+
+        const res = await fetch(publicRequest + 'appointments', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+
+        const appointment = await res.json()
+        console.log(appointment)
+      } catch (error) {
+        console.log(error)
       }
     }
-    // console.log(data)
   }
 
   return (
@@ -130,7 +151,7 @@ const BookAppointment = () => {
               <Button
                 type='button'
                 disabled={!(date && selectedTimeSlot)}
-                onClick={() => saveBooking()}
+                onClick={() => handleBooking()}
               >
                 Submit
               </Button>

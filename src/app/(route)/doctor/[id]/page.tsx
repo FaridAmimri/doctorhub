@@ -49,7 +49,7 @@ const DoctorPage = async ({ params }: { params: { id: string } }) => {
                 <Linkedin />
                 <X />
               </div>
-              <BookAppointment />
+              <BookAppointment doctor={doctor} />
             </div>
           </div>
 

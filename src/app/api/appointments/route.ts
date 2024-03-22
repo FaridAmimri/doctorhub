@@ -4,7 +4,7 @@ import { prisma } from '@/utils/connect'
 import { NextResponse, NextRequest } from 'next/server'
 
 
-
+// CREATE APPOINTMENT
 export const POST = async (req: NextRequest) => {
     try {
         const body = await req.json()
