@@ -19,6 +19,7 @@ import { Calendar } from '@/components/ui/calendar'
 import { CalendarDays, Clock } from 'lucide-react'
 import { DoctorType } from '@/types/types'
 import { publicRequest } from '@/utils/request'
+import { toast } from 'sonner'
 
 const BookAppointment = ({ doctor }: { doctor: DoctorType }) => {
   const [date, setDate] = useState<Date | undefined>(new Date())
@@ -42,7 +43,7 @@ const BookAppointment = ({ doctor }: { doctor: DoctorType }) => {
         time: i + ':30 AM'
       })
     }
-    for (let i = 1; i <= 6; i++) {
+    for (let i = 1; i <= 3; i++) {
       timeList.push({
         time: i + ':00 PM'
       })
@@ -80,6 +81,7 @@ const BookAppointment = ({ doctor }: { doctor: DoctorType }) => {
 
         const appointment = await res.json()
         console.log(appointment)
+        toast('Booking confirmation sent by email !')
       } catch (error) {
         console.log(error)
       }
@@ -93,7 +95,7 @@ const BookAppointment = ({ doctor }: { doctor: DoctorType }) => {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Book Appointment</DialogTitle>
+          <DialogTitle className='hidden md:flex'>Book Appointment</DialogTitle>
           <DialogDescription>
             <div>
               <div className='grid grid-cols-1 md:grid-cols-2 mt-5'>
@@ -140,22 +142,23 @@ const BookAppointment = ({ doctor }: { doctor: DoctorType }) => {
         </DialogHeader>
         <DialogFooter className='sm:justify-end'>
           <DialogClose asChild>
-            <>
+            <div className='flex gap-5 items-center justify-center'>
               <Button
                 type='button'
-                className='text-red-500 border-red-500'
+                className='text-red-500 border-red-500 w-28'
                 variant='outline'
               >
                 Close
               </Button>
               <Button
                 type='button'
+                className='w-28'
                 disabled={!(date && selectedTimeSlot)}
                 onClick={() => handleBooking()}
               >
                 Submit
               </Button>
-            </>
+            </div>
           </DialogClose>
         </DialogFooter>
       </DialogContent>
