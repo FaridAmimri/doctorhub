@@ -73,14 +73,18 @@ const BookAppointment = ({ doctor }: { doctor: DoctorType }) => {
           doctorId: doctor.id
         }
 
-        const res = await fetch(publicRequest + 'appointments', {
+        const BookingRes = await fetch(publicRequest + 'appointments', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         })
 
-        const appointment = await res.json()
-        console.log(appointment)
+        const EmailRes = await fetch(publicRequest + 'sendEmail', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+
         toast('Booking confirmation sent by email !')
       } catch (error) {
         console.log(error)
