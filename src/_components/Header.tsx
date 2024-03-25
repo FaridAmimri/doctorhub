@@ -29,10 +29,10 @@ const Header = () => {
   return (
     <header className='mx-auto max-w-screen-xl p-4 flex items-center justify-between shadow-sm'>
       <div className='flex items-center w-full'>
-        <div className='flex gap-2 items-center'>
+        <Link href='/' className='flex gap-2 items-center'>
           <Stethoscope className='text-primary' />
           <span className='text-primary font-bold'>DoctorHub</span>
-        </div>
+        </Link>
 
         <ul className='hidden justify-center md:flex gap-8 md:w-full'>
           {Menu.map((item) => (
@@ -52,7 +52,7 @@ const Header = () => {
           Get Started
         </Link>
       ) : (
-        <div className='flex gap-2'>
+        <div className='flex gap-2 items-center'>
           <Avatar>
             <AvatarImage src={session?.user?.image!} alt='profil' />
             <AvatarFallback>CN</AvatarFallback>
