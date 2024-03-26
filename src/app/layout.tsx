@@ -3,10 +3,10 @@
 import type { Metadata } from 'next'
 import { Outfit } from 'next/font/google'
 import './globals.css'
-import Header from '@/_components/Header'
-import Footer from '@/_components/Footer'
-import AuthProvider from '@/_components/AuthProvider'
-import QueryProvider from '@/_components/QueryProvider'
+import Header from '@/app/_components/Header'
+import Footer from '@/app/_components/Footer'
+import AuthProvider from '@/app/_components/AuthProvider'
+import QueryProvider from '@/app/_components/QueryProvider'
 import { Toaster } from 'sonner'
 
 const outfit = Outfit({ subsets: ['latin'] })

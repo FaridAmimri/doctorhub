@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { GraduationCap, Linkedin, MapPin, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import BookAppointment from '@/_components/BookAppointment'
+import BookAppointment from './_components/BookAppointment'
 
 const DoctorPage = async ({ params }: { params: { id: string } }) => {
   const doctorId = params.id

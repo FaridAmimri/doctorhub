@@ -1,6 +1,6 @@
 /** @format */
 
-import DoctorList from '@/_components/DoctorList'
+import DoctorList from '@/app/_components/DoctorList'
 
 const categoryPage = ({ params }: { params: { catSlug: string } }) => {
   const category = params.catSlug.toUpperCase()
