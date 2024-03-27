@@ -67,10 +67,11 @@ const BookAppointment = ({ doctor }: { doctor: DoctorType }) => {
         const data = {
           userEmail: session?.user.email,
           userName: session?.user.name,
-          date: date?.toDateString(),
+          date: date?.toJSON().slice(0, 10),
           time: selectedTimeSlot,
-          note: 'test',
-          doctorId: doctor.id
+          doctorId: doctor.id,
+          doctorName: doctor.name,
+          doctorAdress: doctor.address
         }
 
         const BookingRes = await fetch(publicRequest + 'appointments', {
@@ -79,13 +80,14 @@ const BookAppointment = ({ doctor }: { doctor: DoctorType }) => {
           body: JSON.stringify(data)
         })
 
-        const EmailRes = await fetch(publicRequest + 'sendEmail', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        })
+        // const EmailRes = await fetch(publicRequest + 'sendEmail', {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify(data)
+        // })
 
         toast('Booking confirmation sent by email !')
+        router.push('/my-booking')
       } catch (error) {
         console.log(error)
       }

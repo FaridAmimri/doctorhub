@@ -2,6 +2,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import BookingList from './_components/BookingList'
 
 const MyBookingPage = () => {
   return (
@@ -13,11 +14,11 @@ const MyBookingPage = () => {
           <TabsTrigger value='expired'>Expired</TabsTrigger>
         </TabsList>
         <TabsContent value='upcoming'>
-          {/* <BookingList 
-                bookingList={filterUserBooking('upcoming')}
-                updateRecord={()=>getUserBookingList()}
-                expired={false}
-                /> */}
+          <BookingList
+          // bookingList={filterUserBooking('upcoming')}
+          // updateRecord={()=>getUserBookingList()}
+          // expired={false}
+          />
         </TabsContent>
         <TabsContent value='expired'>
           {/* <BookingList bookingList={filterUserBooking('expired')}

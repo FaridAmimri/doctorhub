@@ -14,15 +14,14 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -43,8 +42,8 @@ model User {
   image         String?
   isAdmin       Boolean       @default(false)
   accounts      Account[]
-  sessions      Session[]
   appointment   Appointment[]
+  sessions      Session[]
 }
 
 model VerificationToken {
@@ -75,19 +74,20 @@ model Doctor {
   image        String?
   experiences  String
   patients     String
-  category     Category      @relation(fields: [catSlug], references: [slug])
   catSlug      String
   appointments Appointment[]
+  category     Category      @relation(fields: [catSlug], references: [slug])
 }
 
 model Appointment {
-  id        String @id @default(cuid())
-  user      User   @relation(fields: [userEmail], references: [email])
-  userEmail String
-  userName  String
-  date      String
-  time      String
-  note      String
-  doctor    Doctor @relation(fields: [doctorId], references: [id])
-  doctorId  String
+  id           String @id @default(cuid())
+  userEmail    String
+  userName     String
+  date         String
+  time         String
+  doctorId     String
+  doctorName   String
+  doctorAdress String
+  doctor       Doctor @relation(fields: [doctorId], references: [id])
+  user         User   @relation(fields: [userEmail], references: [email])
 }
